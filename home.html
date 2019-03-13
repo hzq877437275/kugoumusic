@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="jquery.js"></script>
+		<title></title>
+		<style>
+			/*
+			YUI 3.18.1 (build f7e7bcb)
+			Copyright 2014 Yahoo! Inc. All rights reserved.
+			Licensed under the BSD License.
+			http://yuilibrary.com/license/
+			*/
+			html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
+			
+			html, body {
+				width: 100%;
+			}
+			
+			/* 子元素-平均分栏 */
+			.flex1 {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				flex: 1;
+			}
+			/* 父元素-横向排列（主轴） */
+			.flex-h {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-orient: horizontal;
+				-webkit-flex-direction: row;
+				flex-direction: row;
+			}
+			
+			/* 父元素-横向排列（主轴）（从右到左） */
+			.flex-hr {
+				-webkit-box-direction: reverse;
+				-webkit-flex-direction: row-reverse;
+				flex-direction: row-reverse;
+			}
+			
+			/* 父元素-水平向行开始位置对齐（主轴是横向才生效） */
+			.flex-hs {
+				-webkit-box-pack: start;
+				-webkit-justify-content: flex-start;
+				justify-content: flex-start;
+			}
+			/* 父元素-水平居中（主轴是横向才生效） */
+			.flex-hc {
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+			}
+			/* 父元素-水平向行结束位置对齐（主轴是横向才生效） */
+			.flex-he {
+				-webkit-box-pack: end;
+				-webkit-justify-content: flex-end;
+				justify-content: flex-end;
+			}
+			
+			/* 父元素-水平向两端对齐（主轴是横向才生效） */
+			.flex-hsb {
+				-webkit-box-pack: justify;
+				-webkit-justify-content: space-between;
+				justify-content: space-between;
+			}
+			
+			/* 父元素-横向换行 */
+			.flex-hw {
+				-webkit-flex-wrap: wrap;
+				flex-wrap: wrap;
+				font-size: 0;
+			}
+			
+			/* 父元素-横向换行 */
+			.flex-hw>* {
+				display: inline-block;
+			}
+			
+			/* 父元素-纵向排列（主轴） */
+			.flex-v {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-orient: vertical;
+				-webkit-flex-direction: column;
+				flex-direction: column;
+			}
+			/* 父元素-竖直向行起始位置对齐（主轴是横向才生效） */
+			.flex-vs {
+				-webkit-box-align: start;
+				-webkit-align-items: flex-start;
+				align-items: flex-start;
+			}
+			/* 父元素-竖直居中（主轴是横向才生效） */
+			.flex-vc {
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+			}
+			/* 父元素-竖直向行起始位置对齐（主轴是横向才生效） */
+			.flex-ve {
+				-webkit-box-align: end;
+				-webkit-align-items: flex-end;
+				align-items: flex-end;
+			}
+			/* 父元素-纵向换行 */
+			.flex-vw {
+				-webkit-flex-wrap: wrap;
+				flex-wrap: wrap;
+				font-size: 0;
+			}
+			
+			.flex-vw>* {
+				display: inline-block;
+			}
+		
+			em{
+				color: #14a9ff;
+			}
+			.mvBox{border: 1px solid #fff;}
+			.mvBox p{padding: 5px 20px;background: #FFF;}
+			.mp3UL, .mvBox{width: 300px;display: none;border: 1px solid #F0F0F0;}
+			.mp3UL li, .mvBox li{padding: 5px 20px;background: #FFF;}
+			
+		</style>
+	</head>
+	<body>
+		<div class="flex-v flex-vc" style="width: 100%;">
+			<div style="position: relative;margin-bottom: 20px;">
+				<input type="text" class="search_key" style="width: 280px;padding:0 10px;" /><button class="search_btn">搜索</button>
+				<div style="position: absolute;top: 25px;left: 0;z-index: 99;">
+					<ul class="mp3UL">
+						<li>aaa</li>
+						<li>aaa</li>
+						<li>aaa</li>
+						<li>aaa</li>
+						<li>aaa</li>
+					</ul>
+					<div class="mvBox">
+						<p><b>MV</b></p>
+						<ul class="mvUL">
+							<li>aaa</li>
+							<li>aaa</li>
+						</ul>
+					</div>
+				</div>
+				<ul class="flex-h">
+					<li style="margin-right: 20px;"><input type="radio" name="musicType" id="kugouMusic" checked="checked" /><label for="kugouMusic">酷狗</label></li>
+					<li style="margin-right: 20px;"><input type="radio" name="musicType" id="qqMusic" /><label for="qqMusic">QQ音乐</label></li>
+				</ul>
+			</div>
+			
+			<div class="flex-h">
+				<div>
+					<table class="musicTable">
+						<thead>
+							<tr>
+								<th>歌曲名</th>
+								<th>专辑</th>
+								<th>时长</th>
+								<th>操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td colspan="3">无数据</td></tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div>
+					<audio class="audio" controls="controls" loop="loop" autoplay="autoplay"></audio>
+			 		<div class="lyrics" style="max-height: 700px;overflow: auto;"></div>
+				</div>
+			</div>
+		</div>
+		
+		<script>
+		
+			$('.search_key').on('input', function(){
+				var search_key = $(this).val().trim();
+				
+				associateMusic(search_key);
+			}).on('focus', function(){
+				var search_key = $(this).val().trim();
+				
+				associateMusic(search_key);
+			}).click(function(e){
+				e.stopPropagation();
+			});;
+			
+			$('.search_btn').click(function(){
+				$('.mp3UL, .mvUL').html('');
+				$('.mp3UL, .mvBox').css('display', 'none');
+				var search_key = $('.search_key').val();
+				
+				searchMusic(search_key);
+				
+			});
+			
+			$('.search_key').keydown(function(event){
+		　　　　	if(event.keyCode == 13){ //enter
+		　　　　　		$('.mp3UL, .mvUL').html('');
+					$('.mp3UL, .mvBox').css('display', 'none');
+					var search_key = $('.search_key').val();
+					
+					searchMusic(search_key);
+		　　　　	}
+		
+//				if(event.keyCode == 40){ //下
+//			    }
+//			    if(event.keyCode == 37){ //左
+//			    }
+//			    if(event.keyCode == 39){ //右
+//			    }
+//			    if(event.keyCode == 38){ // 上
+//			    }
+		　　	});
+			
+			function associateMusic(searchKey){
+//				console.log(searchKey)
+				if (searchKey!='') {
+					var timestamp =Date.parse(new Date());
+					$.ajax({
+						type:'get',
+						dataType: 'jsonp',
+						url: 'https://searchtip.kugou.com/getSearchTip?MusicTipCount=5&MVTipCount=2&albumcount=2&keyword='+searchKey+'&_='+timestamp,
+						async:true,
+						success: function(result){
+							var data = result.data;
+//							console.log(data)
+							if (data[0].RecordDatas.length > 0) {
+								$('.mp3UL').html('').css('display', 'block');
+								$.each(data[0].RecordDatas, function(mp3Key, mp3Value) {
+									$('.mp3UL').append('<li>'+mp3Value.HintInfo+'</li>');
+								});
+								
+								$('.mp3UL li').click(function(){
+//									console.log($(this).html())
+									$('.search_key').val($(this).html());
+									searchMusic($(this).html());
+									$('.mp3UL').html('').css('display', 'none');
+								}).hover(function(){
+									$(this).css('background', '#f0f0f0');
+								}, function(){
+									$(this).css('background', '#fff');
+								});
+							} else{
+								$('.mp3UL').html('').css('display', 'none');
+							}
+							
+							if (data[1].RecordDatas.length > 0) {
+								$('.mvUL').html('');
+								$('.mvBox').css('display', 'block');
+								$.each(data[1].RecordDatas, function(mvKey, mvValue) {
+									$('.mvUL').append('<li>'+mvValue.HintInfo+'</li>');
+								});
+								$('.mvUL li').click(function(){
+									searchMusic($(this).html());
+									$('.mvUL').html('');
+									$('.mvBox').css('display', 'none');
+								}).hover(function(){
+									$(this).css('background', '#f0f0f0');
+								}, function(){
+									$(this).css('background', '#fff');
+								});
+							} else{
+								$('.mvUL').html('');
+								$('.mvBox').css('display', 'none');
+							}
+							
+						}
+					});
+				} else {
+					$('.mp3UL, .mvUL').html('');
+					$('.mp3UL, .mvBox').css('display', 'none');
+				}
+			}
+			
+			function searchMusic(searchKey){
+				$.ajax({
+					type:'get',
+					dataType: 'jsonp',
+//					url:"https://songsearch.kugou.com/song_search_v2",
+					url:'https://songsearch.kugou.com/song_search_v2?keyword='+searchKey+'&page=1&pagesize=30&userid=-1&clientver=&platform=WebFilter&tag=em&filter=2&iscorrection=1&privilege_filter=0&_=1545980476648',
+//					data: JSON.stringify({
+//						callback: 'jQuery112405688719190227205_1545980476644',
+//						keyword: search_key,
+//						page: 1,
+//						pagesize: 30,
+//						userid: -1,
+//						clientver: null,
+//						platform: 'WebFilter',
+//						tag: 'em',
+//						filter: 2,
+//						iscorrection: 1,
+//						privilege_filter: 0,
+//						_: 1545980476648,
+//					}),
+					async:true,
+					success: function(result){
+						var data = result.data;
+//						console.log(data)
+//						console.log(data.total)
+//						console.log(data.lists)
+						
+						if (data.lists && data.lists.length > 0) {
+							$('.musicTable tbody').html('');
+							$.each(data.lists, function(key, value){
+								var minute = Math.floor(value.Duration/60);
+								var second = value.Duration%60;
+								if (minute < 10) {
+									minute = '0'+minute;
+								} 
+								if (second < 10) {
+									second = '0'+second;
+								} 
+								$('.musicTable tbody').append('<tr>'+
+									'<td data-hash="'+value.FileHash+'" data-albumid="'+value.AlbumID+'">'+value.FileName+'</td>'+
+									'<td>'+(value.AlbumName || '')+'</td>'+
+									'<td>'+(minute+':'+second)+'</td>'+
+									'<td style="color: #14a9ff;"><button class="download">下载</button><button class="play">播放</button></td>'+
+								'</tr>');
+								
+								var $ulNum = $('.musicTable tbody tr').length - 1;
+								
+								$('tr:eq('+$ulNum+') td:eq(0)').on('click', function(){
+//									console.log($(this).html());
+									playMusic($(this).data('hash'), $(this).data('albumid'));
+									
+								});
+								
+								$('tr:eq('+$ulNum+') td:eq(3) button.download').on('click', function(){
+//									console.log($(this).html());
+									playMusic($(this).parent().parent().children('td:eq(0)').data('hash'), $(this).parent().parent().children('td:eq(0)').data('albumid'), 'download');
+									
+								});
+								
+								$('tr:eq('+$ulNum+') td:eq(3) button.play').on('click', function(){
+									$('.musicTable tbody tr').css('background', '#FFF');
+									$(this).parent().parent('tr').css('background', '#F0F0F0');
+//									console.log($(this).html());
+									playMusic($(this).parent().parent().children('td:eq(0)').data('hash'), $(this).parent().parent().children('td:eq(0)').data('albumid'), 'play');
+									
+								});
+							});
+						}
+						
+					}
+				});
+				
+//				https://songsearch.kugou.com/song_search_v2?callback=jQuery112405688719190227205_1545980476644&keyword=七友&page=1&pagesize=30&userid=-1&clientver=&platform=WebFilter&tag=em&filter=2&iscorrection=1&privilege_filter=0&_=1545980476648
+				
+//				window.open('https://www.kugou.com/song/#hash=1384ABEBB6129282B42A80639826A453&album_id=1076754');
+			}
+			
+			function playMusic(hash, albumid, isDownload){
+				var timestamp =Date.parse(new Date());
+//				console.log(hash, '======' ,albumid, '======',timestamp)
+				$.ajax({
+					type:'get',
+					dataType: 'jsonp',
+					url:'https://wwwapi.kugou.com/yy/index.php?r=play/getdata&callback=jQuery19106059576958064032_1545986188366&hash='+hash+'&album_id='+albumid+'&_='+timestamp,
+					async:true,
+					success: function(result){
+						var data = result.data;
+//						console.log(data.play_url)
+						if (isDownload == 'download') {
+							window.location.href = data.play_url;
+//							sessionStorage.setItem('playData', JSON.stringify(data))
+//							window.location.href = 'musicDetail.html';
+						} else if (isDownload == 'play') {
+							if (data.play_url) {
+								$('.audio').attr('src', data.play_url);
+							} else{
+//								console.log('无歌曲');
+							}
+							if (data.lyrics) {
+								$('.lyrics').html(data.lyrics.replace(/\[/g,"<br />["));
+							} else{
+								$('.lyrics').html('无歌词');
+							}
+						}
+						
+					}
+				});
+			}
+			
+			$(document).click(function(){
+				$('.mp3UL, .mvUL').html('');
+				$('.mp3UL, .mvBox').css('display', 'none');
+			});
+			
+		</script>
+	</body>
+</html>
